@@ -7,6 +7,24 @@ selfie.onclick = () => {
   alert( "Handler for `click` called." );
 }
 
+var headings = document.getElementsByClassName("heading")
+
+for (var i = 0; i < headings.length; i++) {
+  let rect = headings[i].getBoundingClientRect();
+  console.log(rect.top, rect.bottom, rect.left, rect.right); //second console output
+}
+
+var paragraph = document.querySelector(".paragraph");
+paragraph.innerHTML = paragraph.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime({
+  targets: '.paragraph .letter',
+  opacity: [0, 1],
+  easing: "easeOutSine",
+  duration: 150,
+  delay: (_, i) => 500 + 5 * (i - 1)
+})
+
 $(window).scroll(() => {
   var scroll_top = $(window).scrollTop();
   if (scrollY >= 100) {
@@ -22,33 +40,3 @@ $(window).scroll(() => {
       }
   }
 });
-
-
-
-
-
-// // Libraries
-// import anime from "../anime/lib/anime.es.js"
-
-
-
-// // Begin
-// // Stolen from https://tobiasahlin.com/moving-letters/#3
-// // Wrap every letter in a span
-let textWrapper = document.querySelector('.typewrite');
-textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-
-anime.timeline({loop: false})
-  .add({
-    targets: '.typewrite .letter',
-    opacity: [0, 1],
-    easing: "easeInCubic",
-    duration: 150,
-    delay: (_, i) => (i - 1)
-  }).add({
-    targets: '.heading',
-    opacity: 0,
-    duration: 500,
-    easing: "easeOutExpo",
-    delay: 100
-  });

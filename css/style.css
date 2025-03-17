@@ -47,6 +47,12 @@ body {
     height: 500px;
 }
 
-.typewrite {
+.paragraph {
     font-family: Helvetica, sans-serif;
+    opacity: 1;
+}
+
+.heading {
+    font-family: Helvetica, sans-serif;
+    opacity: 1;
 }
