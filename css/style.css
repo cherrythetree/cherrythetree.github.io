@@ -1,15 +1,27 @@
+body {
+    display: block;
+    margin: 0px;
+}
 
-
-.site-header {
+#site-header {
+    display: block;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     background-color: #ffff !important;
     width: 100%;
     position: fixed;
     top: 0;
-    padding: 0 10px;
+    padding: 0 0px;
+    background-image: url("../_images/noise.png");
+    background-repeat: repeat;
+}
+
+#site-header-canvas {
+    display: none;
+    width: 500px;
+    height: 500px;
 }
 
 .heading {
-    font-family: Helvetica, sans-serif;
+    font-family: Helvetica; sans-serif;
 }

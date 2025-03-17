@@ -1,8 +1,11 @@
+// Libraries
 import anime from "../anime/lib/anime.es.js"
+import "../jquery/src/jquery.js"
 
+// Begin
 // Stolen from https://tobiasahlin.com/moving-letters/#3
 // Wrap every letter in a span
-var textWrapper = document.querySelector('.heading');
+let textWrapper = document.querySelector('.heading');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
 anime.timeline({loop: true})
