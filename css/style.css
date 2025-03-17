@@ -1,6 +1,30 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     display: block;
     margin: 0px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.content {
+    padding-right: 0px;
+    width: 70%;
+    font-size: 27px;
+}
+
+#selfie {
+    cursor: pointer;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 #site-header {
@@ -13,6 +37,7 @@ body {
     top: 0;
     padding: 0 0px;
     background-image: url("../_images/noise.png");
+    background-size: 25vw 25vw;
     background-repeat: repeat;
 }
 
@@ -22,6 +47,6 @@ body {
     height: 500px;
 }
 
-.heading {
-    font-family: Helvetica; sans-serif;
+.typewrite {
+    font-family: Helvetica, sans-serif;
 }

@@ -1,6 +1,0 @@
-[submodule "anime"]
-	path = anime
-	url = https://github.com/juliangarnier/anime/
-[submodule "jquery"]
-	path = jquery
-	url = https://github.com/jquery/jquery

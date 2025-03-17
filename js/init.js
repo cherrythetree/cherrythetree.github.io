@@ -1,20 +1,50 @@
-// Libraries
-import anime from "../anime/lib/anime.es.js"
-import "../jquery/src/jquery.js"
+// Variables
+var is_scrolled = false;
 
 // Begin
-// Stolen from https://tobiasahlin.com/moving-letters/#3
-// Wrap every letter in a span
-let textWrapper = document.querySelector('.heading');
+var selfie = document.getElementById("selfie")
+selfie.onclick = () => {
+  alert( "Handler for `click` called." );
+}
+
+$(window).scroll(() => {
+  var scroll_top = $(window).scrollTop();
+  if (scrollY >= 100) {
+    if (!is_scrolled) {
+      console.log("Bye!");
+      is_scrolled = true;
+    }
+  }
+  else if (scroll_top != null) {
+      if (is_scrolled) {
+          console.log("Hello!");
+          is_scrolled = false;
+      }
+  }
+});
+
+
+
+
+
+// // Libraries
+// import anime from "../anime/lib/anime.es.js"
+
+
+
+// // Begin
+// // Stolen from https://tobiasahlin.com/moving-letters/#3
+// // Wrap every letter in a span
+let textWrapper = document.querySelector('.typewrite');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
-anime.timeline({loop: true})
+anime.timeline({loop: false})
   .add({
-    targets: '.heading .letter',
+    targets: '.typewrite .letter',
     opacity: [0, 1],
-    easing: "easeInOutQuad",
+    easing: "easeInCubic",
     duration: 150,
-    delay: (el, i) => 150 * (i+1)
+    delay: (_, i) => (i - 1)
   }).add({
     targets: '.heading',
     opacity: 0,
