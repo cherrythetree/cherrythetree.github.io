@@ -1,5 +1,6 @@
 html {
     scroll-behavior: smooth;
+    font-family: Helvetica, sans-serif;
 }
 
 body {
@@ -18,8 +19,21 @@ body {
     font-size: 27px;
 }
 
+.paragraph {
+    opacity: 1;
+}
+
+.heading {
+    opacity: 1;
+}
+
+#who-am-i {
+    opacity: 1;
+}
+
 #selfie {
     cursor: pointer;
+    border-radius: 50%;
     -webkit-user-drag: none;
     user-select: none;
     -moz-user-select: none;
@@ -45,14 +59,4 @@ body {
     display: none;
     width: 500px;
     height: 500px;
-}
-
-.paragraph {
-    font-family: Helvetica, sans-serif;
-    opacity: 1;
-}
-
-.heading {
-    font-family: Helvetica, sans-serif;
-    opacity: 1;
 }
