@@ -3,7 +3,8 @@
 
 html {
     scroll-behavior: smooth;
-    margin: 0px !important;
+    opacity: 0;
+    margin: 0px;
     -webkit-user-drag: none;
     user-select: none;
     -moz-user-select: none;
@@ -44,12 +45,17 @@ body {
     opacity: 1;
 }
 
+.paragraph-letter {
+    opacity: 0;
+}
+
 .intro-letter {
     opacity: 0;
 }
 
 .skill-letter {
     opacity: 0;
+    z-index: 0;
 }
 
 #intro {
@@ -60,9 +66,29 @@ body {
     opacity: 1;
 }
 
+#star {
+    transform: rotate(0deg);
+    cursor: pointer;
+    border-radius: 50%;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
 #selfie {
     cursor: pointer;
     border-radius: 50%;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+#selfie:hover {
+    border-width: 15px;
 }
 
 #site-header {
@@ -71,16 +97,11 @@ body {
     padding-bottom: 0 !important;
     background-color: #ffff !important;
     width: 100%;
+    z-index: 1000;
     position: fixed;
     top: 0;
     padding: 0 0px;
     background-image: url("../_images/noise.png");
     background-size: 25vw 25vw;
     background-repeat: repeat;
-}
-
-#cloud-noise {
-    display: none;
-    width: 200px;
-    height: 200px;
 }

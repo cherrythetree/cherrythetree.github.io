@@ -19,12 +19,15 @@ var skill = document.querySelector("#skill");
 var headings = document.getElementsByClassName("heading");
 var paragraph = document.querySelector(".paragraph");
 var skillIndex = 0;
-var cloudNoise = document.getElementById("cloud-noise");
-var cloudNoiseWidth = cloudNoise.width = 200;
-var cloudNoiseHeight = cloudNoise.height = 200;
-var cloudContext = cloudNoise.getContext("2d");
+var starDegrees = 0;
+var starSpeed = 1;
+var starAudio = new Audio('_audio/pulsing-buzz.wav');
+var starTimestamp;
+var starEndTimestamp;
 
 // Functions
+const lerp = (a, b, c) => a + (b - a) * c;
+
 function changeSkill() {
   let skillDescription = skills[skillIndex];
   let skillHTML = "";
@@ -55,11 +58,32 @@ function changeSkill() {
       easing: "easeOutExpo",
       delay: (_, i) => 400 + 20 * (skillDescription.length - i - 1)
     }).finished.then(() => {
-      skill.innerHTML = "";
-
       setTimeout(changeSkill, 10);
     });
   })
+}
+
+function rotateStar() {
+  requestAnimationFrame(rotateStar);
+
+  if (starTimestamp != null & starEndTimestamp == null) {
+    let alpha = (document.timeline.currentTime - starTimestamp) / 2000;
+
+    if (alpha <= 1) {
+      starSpeed = lerp(1, -5, -(alpha ** 2) + 2 * alpha);
+    }
+  } else if (starTimestamp == null & starEndTimestamp != null) {
+    let alpha = (document.timeline.currentTime - starEndTimestamp) / 1000;
+
+    if (alpha <= 1) {
+      starSpeed = lerp(-5, 1, alpha ** 2);
+    }
+  }
+
+  starDegrees += starSpeed;
+  starDegrees %= 360;
+
+  $("#star").css("transform", "rotate(" + starDegrees + "deg)");
 }
 
 // Begin
@@ -68,26 +92,31 @@ selfie.onmouseenter = () => {
 }
 
 selfie.onclick = () => {
-  alert("Handler for `click` called.");
-}
+  if (starTimestamp == null) {
+    starAudio.currentTime = 0;
+    starAudio.play();
+    starEndTimestamp = null;
+    starTimestamp = document.timeline.currentTime;
 
-for (let i = 0; i < cloudNoiseWidth; i++) {
-  for (let j = 0; j < cloudNoiseHeight; j++) {
-    let red = Math.floor(Math.random() * 255);
-    let green = Math.floor(Math.random() * 255);
-    let blue = Math.floor(Math.random() * 255);
+    setTimeout(() => {
+      starTimestamp = null;
+      starEndTimestamp = document.timeline.currentTime;
 
-    cloudContext.fillStyle = "rgb(" + red + "," + green + "," + blue + ")";
-    cloudContext.fillRect(i, j, 1, 1);
+      setTimeout(() => {
+        starEndTimestamp = null;
+      }, 1000)
+    }, 2000)
   }
 }
+
+rotateStar(0);
 
 VANTA.FOG({
   el: "html",
   mouseControls: true,
   touchControls: true,
   gyroControls: false,
-  minHeight: 800.00,
+  minHeight: 1200.00,
   minWidth: 200.00,
   highlightColor: "#fca3b9",
   midtoneColor: "#fcd78f",
@@ -97,17 +126,6 @@ VANTA.FOG({
   speed: 5.00,
   zoom: 1.20
 })
-
-// VANTA.CLOUDS2({
-//   el: "body",
-//   mouseControls: false,
-//   touchControls: false,
-//   gyroControls: false,
-//   minHeight: 800.00,
-//   scale: 1.00,
-//   speed: 1.00,
-//   texturePath: cloudNoise.toDataURL()
-// })
 
 $(window).scroll(() => {
   let scrollTop = $(window).scrollTop();
@@ -128,24 +146,31 @@ $(window).scroll(() => {
 
 $(document).ready(() => {
   intro.innerHTML = intro.textContent.replace(/\S/g, "<span class='intro-letter'>$&</span>");
-
-  anime({
-    targets: '#intro .intro-letter',
-    opacity: [0, 1],
-    easing: "easeOutSine",
-    duration: 150,
-    delay: (_, i) => 20 * (i - 1)
-  })
-
   paragraph.innerHTML = paragraph.textContent.replace(/\S/g, "<span class='paragraph-letter'>$&</span>");
 
   anime({
-    targets: '.paragraph .paragraph-letter',
+    targets: 'html',
     opacity: [0, 1],
-    easing: "easeOutSine",
-    duration: 150,
-    delay: (_, i) => 1000 + 20 * (i - 1)
-  })
+    easing: "easeInCubic",
+    duration: 1500,
+    delay: 500
+  }).finished.then(() => {
+    anime({
+      targets: '#intro .intro-letter',
+      opacity: [0, 1],
+      easing: "easeOutSine",
+      duration: 150,
+      delay: (_, i) => 20 * (i - 1)
+    })
 
-  changeSkill();
+    anime({
+      targets: '.paragraph .paragraph-letter',
+      opacity: [0, 1],
+      easing: "easeOutSine",
+      duration: 150,
+      delay: (_, i) => 1000 + 20 * (i - 1)
+    })
+
+    changeSkill();
+  })
 });
