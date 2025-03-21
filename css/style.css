@@ -28,14 +28,9 @@ body {
     margin: 0px;
 }
 
-.flex-container {
-    margin-top: -50px;
-    display: flex;
-    justify-content: space-between;
-}
-
 .content {
-    width: 80%;
+    margin-left: 10px;
+    margin-right: 10px;
     font-size: 32px;
     font-family: Lexend Exa;
     font-weight: 400;
@@ -69,7 +64,6 @@ body {
 #star {
     transform: rotate(0deg);
     cursor: pointer;
-    border-radius: 50%;
     -webkit-user-drag: none;
     user-select: none;
     -moz-user-select: none;
@@ -78,7 +72,6 @@ body {
 }
 
 #selfie {
-    cursor: pointer;
     border-radius: 50%;
     -webkit-user-drag: none;
     user-select: none;

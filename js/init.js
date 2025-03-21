@@ -3,27 +3,26 @@ var skills = [
   "I develop games.",
   "I code visual effects.",
   "I model 3D meshes.",
-  "I write narratives.",
   "I design user interface.",
+  "I write narratives.",
   "I play the ukulele.",
+  "I love messing with integrals on Desmos.",
   "I write songs.",
-  "I love Desmos.",
-  "I write poetry.",
   "I love the guitar.",
+  "I write poetry."
 ];
 
 var isScrolled = false;
-var selfie = document.getElementById("selfie");
 var intro = document.querySelector("#intro");
 var skill = document.querySelector("#skill");
 var headings = document.getElementsByClassName("heading");
 var paragraph = document.querySelector(".paragraph");
 var skillIndex = 0;
+var star = document.getElementById("star");
 var starDegrees = 0;
 var starSpeed = 1;
 var starAudio = new Audio('_audio/pulsing-buzz.wav');
 var starTimestamp;
-var starEndTimestamp;
 
 // Functions
 const lerp = (a, b, c) => a + (b - a) * c;
@@ -56,7 +55,7 @@ function changeSkill() {
       opacity: [1, 0],
       duration: 100,
       easing: "easeOutExpo",
-      delay: (_, i) => 400 + 20 * (skillDescription.length - i - 1)
+      delay: (_, i) => 600 + 20 * (skillDescription.length - i - 1)
     }).finished.then(() => {
       setTimeout(changeSkill, 10);
     });
@@ -66,17 +65,13 @@ function changeSkill() {
 function rotateStar() {
   requestAnimationFrame(rotateStar);
 
-  if (starTimestamp != null & starEndTimestamp == null) {
+  if (starTimestamp != null) {
     let alpha = (document.timeline.currentTime - starTimestamp) / 2000;
 
     if (alpha <= 1) {
       starSpeed = lerp(1, -5, -(alpha ** 2) + 2 * alpha);
-    }
-  } else if (starTimestamp == null & starEndTimestamp != null) {
-    let alpha = (document.timeline.currentTime - starEndTimestamp) / 1000;
-
-    if (alpha <= 1) {
-      starSpeed = lerp(-5, 1, alpha ** 2);
+    } else {
+      starSpeed = -5;
     }
   }
 
@@ -87,25 +82,23 @@ function rotateStar() {
 }
 
 // Begin
-selfie.onmouseenter = () => {
-
-}
-
-selfie.onclick = () => {
+star.onclick = () => {
   if (starTimestamp == null) {
     starAudio.currentTime = 0;
     starAudio.play();
-    starEndTimestamp = null;
     starTimestamp = document.timeline.currentTime;
 
-    setTimeout(() => {
-      starTimestamp = null;
-      starEndTimestamp = document.timeline.currentTime;
+    anime({
+      targets: 'html',
+      opacity: [1, 0],
+      easing: "easeOutSine",
+      duration: 200,
+      delay: 2700
+    })
 
-      setTimeout(() => {
-        starEndTimestamp = null;
-      }, 1000)
-    }, 2000)
+    setTimeout(() => {
+      window.location = "https://www.desmos.com/calculator/ia9ry4ldhq";
+    }, 3000)
   }
 }
 
@@ -116,7 +109,7 @@ VANTA.FOG({
   mouseControls: true,
   touchControls: true,
   gyroControls: false,
-  minHeight: 1200.00,
+  minHeight: 3000.00,
   minWidth: 200.00,
   highlightColor: "#fca3b9",
   midtoneColor: "#fcd78f",
