@@ -1,6 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Lexend+Exa:200,300,400,500,600,700,900');
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,900');
+
 html {
     scroll-behavior: smooth;
-    font-family: Helvetica, sans-serif;
+    margin: 0px !important;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+h1 {
+    font-family: 'Lexend Exa';
+    font-weight: 800;
+    font-size: 52px;
+    background-image: url("../_images/noise.png");
+    background-clip: text;
+    background-size: 25vw 25vw;
+    background-repeat: repeat;
+    color: transparent;
 }
 
 body {
@@ -9,36 +28,41 @@ body {
 }
 
 .flex-container {
+    margin-top: -50px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .content {
-    padding-right: 0px;
-    width: 70%;
-    font-size: 27px;
+    width: 80%;
+    font-size: 32px;
+    font-family: Lexend Exa;
+    font-weight: 400;
 }
 
 .paragraph {
     opacity: 1;
 }
 
-.heading {
+.intro-letter {
+    opacity: 0;
+}
+
+.skill-letter {
+    opacity: 0;
+}
+
+#intro {
     opacity: 1;
 }
 
-#who-am-i {
+#skill {
     opacity: 1;
 }
 
 #selfie {
     cursor: pointer;
     border-radius: 50%;
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
 }
 
 #site-header {
@@ -55,8 +79,8 @@ body {
     background-repeat: repeat;
 }
 
-#site-header-canvas {
+#cloud-noise {
     display: none;
-    width: 500px;
-    height: 500px;
+    width: 200px;
+    height: 200px;
 }

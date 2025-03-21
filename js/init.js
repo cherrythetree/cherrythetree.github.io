@@ -1,96 +1,151 @@
 // Variables
-var i_am_who = [
+var skills = [
   "I develop games.",
-  "I code flashy visual effects.",
+  "I code visual effects.",
   "I model 3D meshes.",
-  "I design and code user interface.",
+  "I write narratives.",
+  "I design user interface.",
   "I play the ukulele.",
   "I write songs.",
-  "I write narratives.",
-  "I love Desmos and calculators.",
-  "I write poetry."
+  "I love Desmos.",
+  "I write poetry.",
+  "I love the guitar.",
 ];
 
-var is_scrolled = false;
+var isScrolled = false;
 var selfie = document.getElementById("selfie");
-var who_am_i = document.querySelector("#who-am-i");
-var who_am_i_index = 0;
-var who_am_i_changes = true;
+var intro = document.querySelector("#intro");
+var skill = document.querySelector("#skill");
+var headings = document.getElementsByClassName("heading");
+var paragraph = document.querySelector(".paragraph");
+var skillIndex = 0;
+var cloudNoise = document.getElementById("cloud-noise");
+var cloudNoiseWidth = cloudNoise.width = 200;
+var cloudNoiseHeight = cloudNoise.height = 200;
+var cloudContext = cloudNoise.getContext("2d");
+
+// Functions
+function changeSkill() {
+  let skillDescription = skills[skillIndex];
+  let skillHTML = "";
+
+  skillIndex++;
+
+  if (skillIndex >= skills.length) {
+    skillIndex = 0;
+  }
+
+  for (let i = 0; i < skillDescription.length; i++) {
+    skillHTML += `<span class='skill-letter' style='opacity:0;'>${skillDescription[i]}</span>`
+  }
+
+  skill.innerHTML = skillHTML;
+
+  anime({
+    targets: '.skill-letter',
+    opacity: [0, 1],
+    easing: "easeOutSine",
+    duration: 150,
+    delay: (_, i) => 500 + 20 * (i - 1)
+  }).finished.then(() => {
+    anime({
+      targets: '.skill-letter',
+      opacity: [1, 0],
+      duration: 100,
+      easing: "easeOutExpo",
+      delay: (_, i) => 400 + 20 * (skillDescription.length - i - 1)
+    }).finished.then(() => {
+      skill.innerHTML = "";
+
+      setTimeout(changeSkill, 10);
+    });
+  })
+}
 
 // Begin
+selfie.onmouseenter = () => {
+
+}
+
 selfie.onclick = () => {
-  alert( "Handler for `click` called." );
+  alert("Handler for `click` called.");
 }
 
-$(document).ready(() => {
-  function CHANGE_WHO_AM_I() {
-    who_am_i_index++;
-    who_am_i.innerHTML = "";
+for (let i = 0; i < cloudNoiseWidth; i++) {
+  for (let j = 0; j < cloudNoiseHeight; j++) {
+    let red = Math.floor(Math.random() * 255);
+    let green = Math.floor(Math.random() * 255);
+    let blue = Math.floor(Math.random() * 255);
 
-    if (who_am_i_index >= i_am_who.length) {
-      who_am_i_index = 0;
-    }
-
-    let i_am_statement = i_am_who[who_am_i_index];
-    let inner_html = "";
-    
-    for (let i = 0; i < i_am_statement.length; i++) {
-      inner_html += `<span class='who-am-i-letter'>${i_am_statement[i]}</span>`
-    }
-  
-    who_am_i.innerHTML = inner_html;
-
-    anime.timeline({})
-      .add({
-        targets: '.who-am-i-letter',
-        opacity: [0, 1],
-        easing: "easeOutSine",
-        duration: 150,
-        delay: (_, i) => 20 * (i - 1)
-      }).add({
-        targets: '.who-am-i-letter',
-        opacity: [1, 0],
-        duration: 100,
-        easing: "easeOutExpo",
-        delay: (_, i) => 500 + 20 * (i_am_statement.length - i - 1)
-      })
-
-    setTimeout(CHANGE_WHO_AM_I, 2 * (500 + 15 * i_am_statement.length));
+    cloudContext.fillStyle = "rgb(" + red + "," + green + "," + blue + ")";
+    cloudContext.fillRect(i, j, 1, 1);
   }
-
-  CHANGE_WHO_AM_I();
-});
-
-var headings = document.getElementsByClassName("heading")
-
-for (var i = 0; i < headings.length; i++) {
-  let rect = headings[i].getBoundingClientRect();
-  console.log(rect.top, rect.bottom, rect.left, rect.right); //second console output
 }
 
-var paragraph = document.querySelector(".paragraph");
-paragraph.innerHTML = paragraph.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-
-anime({
-  targets: '.paragraph .letter',
-  opacity: [0, 1],
-  easing: "easeOutSine",
-  duration: 150,
-  delay: (_, i) => 500 + 5 * (i - 1)
+VANTA.FOG({
+  el: "html",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 800.00,
+  minWidth: 200.00,
+  highlightColor: "#fca3b9",
+  midtoneColor: "#fcd78f",
+  lowlightColor: "#ef99b2",
+  baseColor: "#e8e9ed",
+  blurFactor: 0.66,
+  speed: 5.00,
+  zoom: 1.20
 })
 
+// VANTA.CLOUDS2({
+//   el: "body",
+//   mouseControls: false,
+//   touchControls: false,
+//   gyroControls: false,
+//   minHeight: 800.00,
+//   scale: 1.00,
+//   speed: 1.00,
+//   texturePath: cloudNoise.toDataURL()
+// })
+
 $(window).scroll(() => {
-  var scroll_top = $(window).scrollTop();
+  let scrollTop = $(window).scrollTop();
+
   if (scrollY >= 100) {
-    if (!is_scrolled) {
+    if (!isScrolled) {
       console.log("Bye!");
-      is_scrolled = true;
+      isScrolled = true;
     }
   }
-  else if (scroll_top != null) {
-      if (is_scrolled) {
-          console.log("Hello!");
-          is_scrolled = false;
-      }
+  else if (scrollTop != null) {
+    if (isScrolled) {
+      console.log("Hello!");
+      isScrolled = false;
+    }
   }
+});
+
+$(document).ready(() => {
+  intro.innerHTML = intro.textContent.replace(/\S/g, "<span class='intro-letter'>$&</span>");
+
+  anime({
+    targets: '#intro .intro-letter',
+    opacity: [0, 1],
+    easing: "easeOutSine",
+    duration: 150,
+    delay: (_, i) => 20 * (i - 1)
+  })
+
+  paragraph.innerHTML = paragraph.textContent.replace(/\S/g, "<span class='paragraph-letter'>$&</span>");
+
+  anime({
+    targets: '.paragraph .paragraph-letter',
+    opacity: [0, 1],
+    easing: "easeOutSine",
+    duration: 150,
+    delay: (_, i) => 1000 + 20 * (i - 1)
+  })
+
+  changeSkill();
 });
