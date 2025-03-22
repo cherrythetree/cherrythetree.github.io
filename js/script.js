@@ -117,7 +117,7 @@ VANTA.FOG({
   baseColor: "#e8e9ed",
   blurFactor: 0.66,
   speed: 5.00,
-  zoom: 1.20
+  zoom: 5.00
 })
 
 $(window).scroll(() => {
@@ -140,28 +140,35 @@ $(window).scroll(() => {
 intro.innerHTML = intro.textContent.replace(/\S/g, "<span class='intro-letter'>$&</span>");
 paragraph.innerHTML = paragraph.textContent.replace(/\S/g, "<span class='paragraph-letter'>$&</span>");
 
-anime({
-  targets: 'html',
-  opacity: [0, 1],
-  easing: "easeInCubic",
-  duration: 1500,
-  delay: 500
-}).finished.then(() => {
-  anime({
-    targets: '#intro .intro-letter',
-    opacity: [0, 1],
-    easing: "easeOutSine",
-    duration: 150,
-    delay: (_, i) => 20 * (i - 1)
-  });
+jQuery(document).ready(function ($) {
 
   anime({
-    targets: '.paragraph .paragraph-letter',
+    targets: 'html',
     opacity: [0, 1],
-    easing: "easeOutSine",
-    duration: 150,
-    delay: (_, i) => 1000 + 20 * (i - 1)
+    easing: "easeInCubic",
+    duration: 1500,
+    delay: 500
+  }).finished.then(() => {
+    anime({
+      targets: '#intro .intro-letter',
+      opacity: [0, 1],
+      easing: "easeOutSine",
+      duration: 150,
+      delay: (_, i) => 20 * (i - 1)
+    });
+
+    anime({
+      targets: '.paragraph .paragraph-letter',
+      opacity: [0, 1],
+      easing: "easeOutSine",
+      duration: 150,
+      delay: (_, i) => 1000 + 20 * (i - 1)
+    });
+
+    changeSkill();
   });
 
-  changeSkill();
+  $(window).on('popstate', function () {
+    location.reload(true);
+  });
 });
