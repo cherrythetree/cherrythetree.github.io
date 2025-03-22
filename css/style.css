@@ -16,7 +16,7 @@ h1 {
     font-family: 'Lexend Exa';
     font-weight: 800;
     font-size: 52px;
-    background-image: url("../_images/noise.png");
+    background-image: url("https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_images/noise.png");
     background-clip: text;
     background-size: 25vw 25vw;
     background-repeat: repeat;
