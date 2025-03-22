@@ -137,7 +137,7 @@ $(window).scroll(() => {
   }
 });
 
-$(document).load(() => {
+$(window).on('load', () => {
   intro.innerHTML = intro.textContent.replace(/\S/g, "<span class='intro-letter'>$&</span>");
   paragraph.innerHTML = paragraph.textContent.replace(/\S/g, "<span class='paragraph-letter'>$&</span>");
 
