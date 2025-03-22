@@ -6,7 +6,7 @@ var skills = [
   "I design user interface.",
   "I write narratives.",
   "I play the ukulele.",
-  "I love messing with integrals on Desmos.",
+  "I love Desmos.",
   "I write songs.",
   "I love the guitar.",
   "I write poetry."
