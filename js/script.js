@@ -23,6 +23,7 @@ var starDegrees = 0;
 var starSpeed = 1;
 var starAudio = new Audio('https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_audio/pulsing-buzz.wav');
 var starTimestamp;
+var pageReady = false;
 
 // Functions
 const lerp = (a, b, c) => a + (b - a) * c;
@@ -83,6 +84,7 @@ function rotateStar() {
 
 // Begin
 star.onclick = () => {
+  if (!pageReady) return;
   if (starTimestamp == null) {
     starAudio.currentTime = 0;
     starAudio.play();
@@ -104,20 +106,20 @@ star.onclick = () => {
 
 rotateStar(0);
 
-VANTA.FOG({
+VANTA.NET({
   el: "html",
   mouseControls: true,
   touchControls: true,
-  gyroControls: false,
-  minHeight: 3000.00,
+  gyroControls: true,
+  minHeight: 200.00,
   minWidth: 200.00,
-  highlightColor: "#fca3b9",
-  midtoneColor: "#fcd78f",
-  lowlightColor: "#ef99b2",
-  baseColor: "#e8e9ed",
-  blurFactor: 0.66,
-  speed: 5.00,
-  zoom: 5.00
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: "#540d0d",
+  backgroundColor: "#04040D",
+  points: 13.00,
+  maxDistance: 24.00,
+  spacing: 18.00
 })
 
 $(window).scroll(() => {
@@ -140,8 +142,7 @@ $(window).scroll(() => {
 intro.innerHTML = intro.textContent.replace(/\S/g, "<span class='intro-letter'>$&</span>");
 paragraph.innerHTML = paragraph.textContent.replace(/\S/g, "<span class='paragraph-letter'>$&</span>");
 
-jQuery(document).ready(function ($) {
-
+jQuery(document).ready($ => {
   anime({
     targets: 'html',
     opacity: [0, 1],
@@ -149,6 +150,8 @@ jQuery(document).ready(function ($) {
     duration: 1500,
     delay: 500
   }).finished.then(() => {
+    pageReady = true;
+
     anime({
       targets: '#intro .intro-letter',
       opacity: [0, 1],
