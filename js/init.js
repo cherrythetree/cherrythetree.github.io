@@ -21,7 +21,7 @@ var skillIndex = 0;
 var star = document.getElementById("star");
 var starDegrees = 0;
 var starSpeed = 1;
-var starAudio = new Audio('https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_audio/noise.png');
+var starAudio = new Audio('https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_audio/pulsing-buzz.wav');
 var starTimestamp;
 
 // Functions
@@ -137,7 +137,7 @@ $(window).scroll(() => {
   }
 });
 
-$(document).ready(() => {
+$(document).load(() => {
   intro.innerHTML = intro.textContent.replace(/\S/g, "<span class='intro-letter'>$&</span>");
   paragraph.innerHTML = paragraph.textContent.replace(/\S/g, "<span class='paragraph-letter'>$&</span>");
 
