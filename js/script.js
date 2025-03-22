@@ -108,7 +108,7 @@ rotateStar(0);
 
 VANTA.NET({
   el: "html",
-  mouseControls: true,
+  mouseControls: false,
   touchControls: true,
   gyroControls: true,
   minHeight: 200.00,
