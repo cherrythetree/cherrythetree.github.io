@@ -94,7 +94,7 @@ body {
     position: fixed;
     top: 0;
     padding: 0 0px;
-    background-image: url("../_images/noise.png");
+    background-image: url("https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_images/noise.png");
     background-size: 25vw 25vw;
     background-repeat: repeat;
 }
