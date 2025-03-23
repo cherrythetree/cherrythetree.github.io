@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lexend+Exa:200,300,400,500,600,700,900');
-@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,900');
+@import url('https://fonts.googleapis.com/css?family=Outfit:400');
 
 html {
     scroll-behavior: smooth;
@@ -14,9 +14,9 @@ html {
 
 h1 {
     font-family: 'Lexend Exa';
-    font-weight: 800;
-    font-size: 52px;
-    background-image: url("https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_images/white-noise.png");
+    font-weight: 900;
+    font-size: 54px;
+    background-image: url("https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_images/red-noise.png");
     background-clip: text;
     background-size: 25vw 25vw;
     background-repeat: repeat;
@@ -28,13 +28,34 @@ body {
     margin: 0px;
 }
 
+#vanta-background {
+    display: block;
+}
+
+.about-me-overview {
+    padding-top: 125px;
+    background-image: linear-gradient(0deg, rgba(255,255,255,1) 10%, rgba(255,255,255,1) 27%, rgba(255,255,255,0) 100%);
+}
+
+.section {
+    margin-top: 10px;
+    margin-bottom: 25px;
+    margin-left: 35px;
+    margin-right: 35px;
+}
+
 .content {
     margin-left: 10px;
     margin-right: 10px;
-    font-size: 32px;
-    font-family: Lexend Exa;
-    font-weight: 400;
-    color: white;
+    font-size: 34px;
+    font-family: 'Outfit';
+    font-weight: 500;
+    color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    min-height: 100px;
 }
 
 .paragraph {
@@ -74,6 +95,7 @@ body {
 
 #selfie {
     border-radius: 50%;
+    padding: 10px;
     -webkit-user-drag: none;
     user-select: none;
     -moz-user-select: none;
@@ -98,4 +120,5 @@ body {
     background-image: url("https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_images/red-noise.png");
     background-size: 25vw 25vw;
     background-repeat: repeat;
+    min-height: 140px;
 }

@@ -14,9 +14,13 @@ var skills = [
 
 var isScrolled = false;
 var intro = document.querySelector("#intro");
+intro.innerHTML = intro.textContent.replace(/\S/g, "<span class='intro-letter'>$&</span>");
+
 var skill = document.querySelector("#skill");
 var headings = document.getElementsByClassName("heading");
 var paragraph = document.querySelector(".paragraph");
+paragraph.innerHTML = paragraph.textContent.replace(/\S/g, "<span class='paragraph-letter'>$&</span>");
+
 var skillIndex = 0;
 var star = document.getElementById("star");
 var starDegrees = 0;
@@ -107,16 +111,16 @@ star.onclick = () => {
 rotateStar(0);
 
 VANTA.NET({
-  el: "html",
-  mouseControls: false,
+  el: "#vanta-background",
+  mouseControls: true,
   touchControls: true,
-  gyroControls: true,
-  minHeight: 200.00,
-  minWidth: 200.00,
+  gyroControls: false,
+  minHeight: 100.00,
+  minWidth: 400.00,
   scale: 1.00,
   scaleMobile: 1.00,
-  color: "#540d0d",
-  backgroundColor: "#04040D",
+  color: "#CE1D1D",
+  backgroundColor: "#FFFFFF",
   points: 13.00,
   maxDistance: 24.00,
   spacing: 18.00
@@ -139,10 +143,7 @@ $(window).scroll(() => {
   }
 });
 
-intro.innerHTML = intro.textContent.replace(/\S/g, "<span class='intro-letter'>$&</span>");
-paragraph.innerHTML = paragraph.textContent.replace(/\S/g, "<span class='paragraph-letter'>$&</span>");
-
-jQuery(document).ready($ => {
+$(document).ready(() => {
   anime({
     targets: 'html',
     opacity: [0, 1],
@@ -170,8 +171,14 @@ jQuery(document).ready($ => {
 
     changeSkill();
   });
+});
 
-  $(window).on('popstate', function () {
-    location.reload(true);
-  });
+$(window).on('pageshow', event => {
+  var historyTraversal = event.persisted ||
+    (typeof window.performance != "undefined" &&
+      performance.getEntriesByType("navigation")[0].type === "back_forward");
+  if (historyTraversal) {
+    // Handle page restore.
+    window.location.reload();
+  }
 });
