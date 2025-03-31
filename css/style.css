@@ -10,6 +10,7 @@ html {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 h1 {
@@ -83,6 +84,22 @@ body {
     opacity: 1;
 }
 
+.image {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: width 0.25s, height 0.25s, padding 0.25s;
+}
+
+.image:hover {
+    width: 130px;
+    height: 130px;
+    padding: 10px;
+}
+
 #star {
     transform: rotate(0deg);
     cursor: pointer;
@@ -91,6 +108,7 @@ body {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 #selfie {
@@ -101,6 +119,7 @@ body {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 #selfie:hover {

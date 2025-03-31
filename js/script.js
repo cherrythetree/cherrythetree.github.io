@@ -23,10 +23,7 @@ paragraph.innerHTML = paragraph.textContent.replace(/\S/g, "<span class='paragra
 
 var skillIndex = 0;
 var star = document.getElementById("star");
-var starDegrees = 0;
-var starSpeed = 1;
 var starAudio = new Audio('https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_audio/pulsing-buzz.wav');
-var starTimestamp;
 var pageReady = false;
 
 // Functions
@@ -70,50 +67,28 @@ function changeSkill() {
 function rotateStar() {
   requestAnimationFrame(rotateStar);
 
-  if (starTimestamp != null) {
-    let alpha = (document.timeline.currentTime - starTimestamp) / 2000;
-
-    if (alpha <= 1) {
-      starSpeed = lerp(1, -5, -(alpha ** 2) + 2 * alpha);
-    } else {
-      starSpeed = -5;
-    }
-  }
-
-  starDegrees += starSpeed;
-  starDegrees %= 360;
-
-  $("#star").css("transform", "rotate(" + starDegrees + "deg)");
+  $("#star").css("transform", "rotate(" + ((starAudio.paused ? 0.1 : -1) * document.timeline.currentTime) % 360 + "deg)");
 }
 
 // Begin
+rotateStar(0);
+
 star.onclick = () => {
   if (!pageReady) return;
-  if (starTimestamp == null) {
-    starAudio.currentTime = 0;
-    starAudio.play();
-    starTimestamp = document.timeline.currentTime;
+  if (!starAudio.paused) return;
 
-    anime({
-      targets: 'html',
-      opacity: [1, 0],
-      easing: "easeOutSine",
-      duration: 200,
-      delay: 2700
-    })
+  starAudio.currentTime = 0;
+  starAudio.play();
 
-    setTimeout(() => {
-      window.location = "https://www.desmos.com/calculator/ia9ry4ldhq";
-    }, 3000)
-  }
+  setTimeout(() => {
+    window.location = "https://www.desmos.com/calculator/ia9ry4ldhq";
+  }, 2750)
 }
-
-rotateStar(0);
 
 VANTA.NET({
   el: "#vanta-background",
-  mouseControls: true,
-  touchControls: true,
+  mouseControls: false,
+  touchControls: false,
   gyroControls: false,
   minHeight: 100.00,
   minWidth: 400.00,
