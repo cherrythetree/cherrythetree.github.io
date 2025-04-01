@@ -158,5 +158,5 @@ $(document).ready(() => {
     changeSkill();
   });
 
-  rotateStar(0);
+  requestAnimationFrame(rotateStar);
 });
