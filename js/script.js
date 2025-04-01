@@ -95,8 +95,6 @@ VANTA.NET({
 })
 
 $(window).scroll(() => {
-  if (!pageReady) return;
-
   let scrollTop = $(window).scrollTop();
 
   if (scrollTop >= 200) {
@@ -123,8 +121,6 @@ $(window).scroll(() => {
 });
 
 $(document).ready(() => {
-  window.scrollTo(0, 0);
-
   anime({
     targets: 'html',
     opacity: [0, 1],
