@@ -97,6 +97,7 @@ VANTA.NET({
 $(window).scroll(() => {
   let scrollTop = $(window).scrollTop();
 
+  if (scrollTop === null) return;
   if (scrollTop >= 200) {
     if (!isScrolled) {
       anime({
@@ -156,6 +157,6 @@ $(document).ready(() => {
 
     changeSkill();
   });
-  
+
   rotateStar(0);
 });
