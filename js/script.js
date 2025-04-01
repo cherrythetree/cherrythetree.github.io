@@ -1,15 +1,15 @@
 // Variables
 var skills = [
-  "I develop games.",
+  "I develop games in my free time.",
   "I code visual effects.",
   "I model 3D meshes.",
   "I design user interface.",
   "I write narratives.",
   "I play the ukulele.",
-  "I love Desmos.",
-  "I write songs.",
-  "I love the guitar.",
-  "I write poetry."
+  "I love messing around on Desmos.",
+  "I write song lyrics.",
+  "I really love the guitar.",
+  "I write sonnets and all things poetry."
 ];
 
 var isScrolled = false;
@@ -18,12 +18,14 @@ intro.innerHTML = intro.textContent.replace(/\S/g, "<span class='intro-letter'>$
 
 var skill = document.querySelector("#skill");
 var headings = document.getElementsByClassName("heading");
-var paragraph = document.querySelector(".paragraph");
-paragraph.innerHTML = paragraph.textContent.replace(/\S/g, "<span class='paragraph-letter'>$&</span>");
+var middle = document.querySelector("#middle");
+middle.innerHTML = middle.textContent.replace(/\S/g, "<span class='middle-letter'>$&</span>");
+
+var conclusion = document.querySelector("#conclusion");
+conclusion.innerHTML = conclusion.textContent.replace(/\S/g, "<span class='conclusion-letter'>$&</span>");
 
 var skillIndex = 0;
 var star = document.getElementById("star");
-var starAudio = new Audio('https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_audio/pulsing-buzz.wav');
 var pageReady = false;
 
 // Functions
@@ -67,22 +69,13 @@ function changeSkill() {
 function rotateStar() {
   requestAnimationFrame(rotateStar);
 
-  $("#star").css("transform", "rotate(" + ((starAudio.paused ? 0.1 : -1) * document.timeline.currentTime) % 360 + "deg)");
+  $("#star").css("transform", "rotate(" + (0.1 * document.timeline.currentTime) % 360 + "deg)");
 }
 
 // Begin
-rotateStar(0);
-
 star.onclick = () => {
   if (!pageReady) return;
-  if (!starAudio.paused) return;
-
-  starAudio.currentTime = 0;
-  starAudio.play();
-
-  setTimeout(() => {
-    window.location = "https://www.desmos.com/calculator/ia9ry4ldhq";
-  }, 2750)
+  window.location = "https://www.desmos.com/calculator/ia9ry4ldhq";
 }
 
 VANTA.NET({
@@ -102,23 +95,36 @@ VANTA.NET({
 })
 
 $(window).scroll(() => {
+  if (!pageReady) return;
+
   let scrollTop = $(window).scrollTop();
 
-  if (scrollY >= 100) {
+  if (scrollTop >= 200) {
     if (!isScrolled) {
-      console.log("Bye!");
+      anime({
+        targets: '.language-icon',
+        opacity: [0, 1],
+        easing: "easeInSine",
+        duration: 750,
+        delay: (_, i) => 600 + 250 * (i - 1)
+      }).finished.then(() => {
+        anime({
+          targets: '#language-footnote',
+          opacity: [0, 1],
+          easing: "easeInSine",
+          duration: 750,
+          delay: (_, i) => 250 * (i - 1)
+        });
+      });
+
       isScrolled = true;
-    }
-  }
-  else if (scrollTop != null) {
-    if (isScrolled) {
-      console.log("Hello!");
-      isScrolled = false;
     }
   }
 });
 
 $(document).ready(() => {
+  window.scrollTo(0, 0);
+
   anime({
     targets: 'html',
     opacity: [0, 1],
@@ -137,23 +143,23 @@ $(document).ready(() => {
     });
 
     anime({
-      targets: '.paragraph .paragraph-letter',
+      targets: '#middle .middle-letter',
       opacity: [0, 1],
       easing: "easeOutSine",
       duration: 150,
       delay: (_, i) => 1000 + 20 * (i - 1)
+    }).finished.then(() => {
+      anime({
+        targets: '#conclusion .conclusion-letter',
+        opacity: [0, 1],
+        easing: "easeOutSine",
+        duration: 150,
+        delay: (_, i) => 20 * (i - 1)
+      });
     });
 
     changeSkill();
   });
-});
-
-$(window).on('pageshow', event => {
-  var historyTraversal = event.persisted ||
-    (typeof window.performance != "undefined" &&
-      performance.getEntriesByType("navigation")[0].type === "back_forward");
-  if (historyTraversal) {
-    // Handle page restore.
-    window.location.reload();
-  }
+  
+  rotateStar(0);
 });
