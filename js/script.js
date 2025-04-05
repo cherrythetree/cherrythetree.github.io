@@ -94,33 +94,6 @@ VANTA.NET({
   spacing: 18.00
 })
 
-// $(window).scroll(() => {
-//   let scrollTop = $(window).scrollTop();
-
-//   if (scrollTop === null) return;
-//   if (scrollTop >= 200) {
-//     if (!isScrolled) {
-//       anime({
-//         targets: '.language-icon',
-//         opacity: [0, 1],
-//         easing: "easeInSine",
-//         duration: 750,
-//         delay: (_, i) => 600 + 250 * (i - 1)
-//       }).finished.then(() => {
-//         anime({
-//           targets: '#language-footnote',
-//           opacity: [0, 1],
-//           easing: "easeInSine",
-//           duration: 750,
-//           delay: (_, i) => 250 * (i - 1)
-//         });
-//       });
-
-//       isScrolled = true;
-//     }
-//   }
-// });
-
 $(document).ready(() => {  
   new WOW().init();
 
