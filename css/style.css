@@ -93,7 +93,6 @@ body {
 }
 
 #language-footnote {
-    opacity: 0;
     font-family: 'Outfit';
     font-size: 18px;
     font-style: italic;
@@ -101,7 +100,6 @@ body {
 }
 
 .language-icon {
-    opacity: 0;
     margin: 10px;
     -webkit-user-drag: none;
     user-select: none;
