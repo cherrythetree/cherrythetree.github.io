@@ -17,7 +17,7 @@ h1 {
     font-family: 'Lexend Exa';
     font-weight: 900;
     font-size: 54px;
-    background-image: url("https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_images/red-noise.png");
+    background-image: url("https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_media/red-noise.png");
     background-clip: text;
     background-size: 25vw 25vw;
     background-repeat: repeat;
@@ -167,7 +167,7 @@ a {
     position: fixed;
     top: 0;
     padding: 0 0px;
-    background-image: url("https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_images/red-noise.png");
+    background-image: url("https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_media/red-noise.png");
     background-size: 25vw 25vw;
     background-repeat: repeat;
     min-height: 140px;
