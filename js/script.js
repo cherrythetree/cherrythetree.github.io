@@ -29,8 +29,6 @@ var star = document.getElementById("star");
 var pageReady = false;
 
 // Functions
-const lerp = (a, b, c) => a + (b - a) * c;
-
 function changeSkill() {
   let skillDescription = skills[skillIndex];
   let skillHTML = "";
