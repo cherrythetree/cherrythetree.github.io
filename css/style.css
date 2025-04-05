@@ -100,7 +100,7 @@ a {
     opacity: 1;
 }
 
-#language-footnote {
+.footnote {
     font-family: 'Outfit';
     font-size: 18px;
     font-style: italic;
