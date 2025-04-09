@@ -224,5 +224,6 @@ li {
     background-image: url("https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_media/red-noise.png");
     background-size: 25vw 25vw;
     background-repeat: repeat;
-    min-height: 140px;
+    min-height: 150px;
+    max-height: 150px;
 }
