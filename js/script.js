@@ -25,7 +25,7 @@ var conclusion = document.querySelector("#conclusion");
 conclusion.innerHTML = conclusion.textContent.replace(/\S/g, "<span class='conclusion-letter'>$&</span>");
 
 var skillIndex = 0;
-var star = document.getElementById("star");
+var star = document.getElementById("star-image");
 var pageReady = false;
 
 // Functions
@@ -67,7 +67,7 @@ function changeSkill() {
 function rotateStar() {
   requestAnimationFrame(rotateStar);
 
-  $("#star").css("transform", "rotate(" + (0.1 * document.timeline.currentTime) % 360 + "deg)");
+  $("#star-image").css("transform", "rotate(" + (0.1 * document.timeline.currentTime) % 360 + "deg)");
 }
 
 // Begin
@@ -77,7 +77,7 @@ star.onclick = () => {
 }
 
 VANTA.NET({
-  el: "#vanta-background",
+  el: "#background",
   mouseControls: false,
   touchControls: false,
   gyroControls: false,

@@ -13,6 +13,10 @@ html {
     -webkit-tap-highlight-color: transparent;
 }
 
+ul {
+    list-style: none;
+}
+
 h1 {
     font-family: 'Lexend Exa';
     font-weight: 900;
@@ -22,6 +26,7 @@ h1 {
     background-size: 25vw 25vw;
     background-repeat: repeat;
     color: transparent;
+    scroll-margin-top: 160px;
 }
 
 body {
@@ -33,7 +38,16 @@ a {
     text-decoration: none;
 }
 
-#vanta-background {
+li {
+    flex-grow: inherit;
+    background: transparent;
+    border: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+#background {
     display: block;
 }
 
@@ -65,6 +79,39 @@ a {
 
 .flex-content {
     display: flex;
+}
+
+#site-header-inline {
+    display: grid;
+    height: auto;
+    min-height: auto;
+    width: 100%;
+}
+
+#site-navigation-compilation {
+    margin: auto;
+}
+
+#site-navigation-menu {
+    height: 100%;
+    width: 100%;
+}
+
+.site-navigation-item-container {
+    justify-content: center;
+    padding: 0 40px 0 40px;
+    align-items: center;
+}
+
+.site-navigation-item-label {
+    font-family: 'Lexend Exa';
+    font-weight: 900;
+    font-size: 32px;
+    background-image: url("https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_media/white-noise.png");
+    background-clip: text;
+    background-size: 25vw 25vw;
+    background-repeat: repeat;
+    color: transparent;
 }
 
 #middle {
@@ -132,7 +179,13 @@ a {
     margin-right: 30px;
 }
 
-#star {
+#star-picture {
+    padding: 15px;
+    padding-left: 40px;
+    border-radius: 50%;
+}
+
+#star-image {
     transform: rotate(0deg);
     cursor: pointer;
     -webkit-user-drag: none;
