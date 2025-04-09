@@ -78,9 +78,9 @@ star.onclick = () => {
 
 VANTA.NET({
   el: "#background",
-  mouseControls: false,
-  touchControls: false,
-  gyroControls: false,
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: true,
   minHeight: 100.00,
   minWidth: 400.00,
   scale: 1.00,
