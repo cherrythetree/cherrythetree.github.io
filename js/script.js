@@ -76,20 +76,20 @@ star.onclick = () => {
   window.location = "https://www.desmos.com/calculator/ia9ry4ldhq";
 }
 
-VANTA.NET({
+VANTA.FOG({
   el: "#background",
   mouseControls: true,
   touchControls: true,
-  gyroControls: true,
-  minHeight: 100.00,
-  minWidth: 400.00,
-  scale: 1.00,
-  scaleMobile: 1.00,
-  color: "#CE1D1D",
-  backgroundColor: "#FFFFFF",
-  points: 13.00,
-  maxDistance: 24.00,
-  spacing: 18.00
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  highlightColor: "#ef6565",
+  midtoneColor: "#a40000",
+  lowlightColor: "#ffffff",
+  baseColor: "#ffffff",
+  blurFactor: 0.45,
+  speed: 2.40,
+  zoom: 2.10
 })
 
 $(document).ready(() => {  
