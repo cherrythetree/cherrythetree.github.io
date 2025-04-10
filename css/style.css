@@ -179,9 +179,12 @@ li {
     margin-right: 30px;
 }
 
+#star-center {
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
 #star-picture {
-    padding: 15px;
-    padding-left: 40px;
     border-radius: 50%;
 }
 
