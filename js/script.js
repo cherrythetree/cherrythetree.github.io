@@ -71,11 +71,6 @@ function rotateStar() {
 }
 
 // Begin
-star.onclick = () => {
-  if (!pageReady) return;
-  window.location = "https://www.desmos.com/calculator/ia9ry4ldhq";
-}
-
 VANTA.FOG({
   el: "#background",
   mouseControls: true,
@@ -89,7 +84,7 @@ VANTA.FOG({
   baseColor: "#ffffff",
   blurFactor: 0.45,
   speed: 2.40,
-  zoom: 2.10
+  zoom: 3.10
 })
 
 $(document).ready(() => {  
