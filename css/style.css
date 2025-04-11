@@ -17,16 +17,28 @@ ul {
     list-style: none;
 }
 
+#about-me-header {
+    font-family: 'Lexend Exa';
+    font-weight: 900;
+    font-size: 54px;
+    scroll-margin-top: 160px;
+    background-image: url("https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_media/white-noise.png");
+    background-clip: text;
+    background-size: 25vw 25vw;
+    background-repeat: repeat;
+    color: transparent;
+}
+
 h1 {
     font-family: 'Lexend Exa';
     font-weight: 900;
     font-size: 54px;
+    scroll-margin-top: 160px;
     background-image: url("https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_media/red-noise.png");
     background-clip: text;
     background-size: 25vw 25vw;
     background-repeat: repeat;
     color: transparent;
-    scroll-margin-top: 160px;
 }
 
 body {
@@ -42,9 +54,14 @@ a {
     display: block;
 }
 
+#cloud-noise {
+    display: none;
+    width: 256px;
+    height: 256px;
+}
+
 .about-me-overview {
     padding-top: 125px;
-    background-image: linear-gradient(0deg, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 27%, rgba(255, 255, 255, 0) 100%);
 }
 
 .section {
@@ -160,6 +177,12 @@ a {
     -webkit-tamp-highlight-color: transparent;
 }
 
+#projects {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .project-icon {
     border-radius: 10px;
     -webkit-user-drag: none;
@@ -170,6 +193,53 @@ a {
     -webkit-tap-highlight-color: transparent;
 }
 
+.project-icon-description {
+    background-image: linear-gradient(0deg, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 27%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* Container holding the image and the text */
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  
+  /* Bottom left text */
+  .bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+  }
+  
+  /* Top left text */
+  .top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+  }
+  
+  /* Top right text */
+  .top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+  }
+  
+  /* Bottom right text */
+  .bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+  }
+  
+  /* Centered text */
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
 #star-center {
     padding-top: 15px;
     padding-bottom: 5px;
