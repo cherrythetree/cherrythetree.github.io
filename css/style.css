@@ -163,11 +163,10 @@ a {
 .footnote {
     font-family: 'Outfit';
     font-size: 18px;
-    font-style: italic;
     font-weight: 400;
 }
 
-.language-icon {
+.language-logo {
     margin: 10px;
     -webkit-user-drag: none;
     user-select: none;
@@ -175,6 +174,24 @@ a {
     -webkit-user-select: none;
     -ms-user-select: none;
     -webkit-tamp-highlight-color: transparent;
+}
+
+.brand-logo {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-tamp-highlight-color: transparent;
+    transition: all 0.25s;
+}
+
+.brand-logo:hover {
+    filter: brightness(1) drop-shadow(8px 8px 10px gray);
+    -webkit-filter: brightness(1) drop-shadow(8px 8px 10px gray);
+    -moz-filter: brightness(1) drop-shadow(8px 8px 10px gray);
+    -o-filter: brightness(1) drop-shadow(8px 8px 10px gray);
+    -ms-filter: brightness(1) drop-shadow(8px 8px 10px gray);
 }
 
 #projects {
