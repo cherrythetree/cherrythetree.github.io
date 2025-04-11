@@ -26,10 +26,6 @@ conclusion.innerHTML = conclusion.textContent.replace(/\S/g, "<span class='concl
 
 var skillIndex = 0;
 var star = document.getElementById("star-image");
-var cloud = document.getElementById("cloud-noise");
-var cloudWidth = cloud.width = 256;
-var cloudHeight = cloud.height = 256;
-var cloudContext = cloud.getContext("2d");
 
 // Functions
 function changeSkill() {
@@ -74,29 +70,21 @@ function rotateStar() {
 }
 
 // Begin
-for (let i = 0; i < cloudWidth; i++) {
-    for (let j = 0; j < cloudHeight; j++) {
-        var red = Math.floor(Math.random() * 255);
-        var green = Math.floor(Math.random() * 255);
-        var blue = Math.floor(Math.random() * 255);
-
-        cloudContext.fillStyle = "rgb(" + red + "," + green + "," + blue + ")";
-        cloudContext.fillRect(i, j, 1, 1);
-    }
-}
-
-VANTA.CLOUDS2({
+VANTA.CLOUDS({
   el: "#background",
   mouseControls: false,
   touchControls: false,
   gyroControls: false,
   minHeight: 200.00,
   minWidth: 200.00,
-  scale: 1.00,
-  speed: 0.70,
-  skyColor: "#ef6565",
-  cloudColor: "#ffffff",
-  texturePath: cloud.toDataURL()
+  backgroundColor: "#c72121",
+  skyColor: "#a71818",
+  cloudColor: "#fcfcfc",
+  cloudShadowColor: "#ffffff",
+  sunColor: "#ffffff",
+  sunGlareColor: "#cc4a52",
+  sunlightColor: "#db3737",
+  speed: 1.90
 })
 
 $(document).ready(() => {  

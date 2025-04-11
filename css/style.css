@@ -58,13 +58,6 @@ a:hover {
 
 #background {
     display: block;
-    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 12%, rgba(239, 101, 101, 1) 67%, rgba(239, 101, 101, 1) 100%);
-}
-
-#cloud-noise {
-    display: none;
-    width: 256px;
-    height: 256px;
 }
 
 .about-me-overview {
