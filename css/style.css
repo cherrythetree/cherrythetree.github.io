@@ -187,11 +187,11 @@ a {
 }
 
 .brand-logo:hover {
-    filter: brightness(1) drop-shadow(8px 8px 10px gray);
-    -webkit-filter: brightness(1) drop-shadow(8px 8px 10px gray);
-    -moz-filter: brightness(1) drop-shadow(8px 8px 10px gray);
-    -o-filter: brightness(1) drop-shadow(8px 8px 10px gray);
-    -ms-filter: brightness(1) drop-shadow(8px 8px 10px gray);
+    filter: brightness(1.5);
+    -webkit-filter: brightness(1.5);
+    -moz-filter: brightness(1.5);
+    -o-filter: brightness(1.5);
+    -ms-filter: brightness(1.5);
 }
 
 #projects {
