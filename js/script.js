@@ -9,7 +9,7 @@ var skills = [
   "I love messing around on Desmos.",
   "I write song lyrics.",
   "I really love the guitar.",
-  "I write sonnets and all things poetry."
+  "I write all things poetry."
 ];
 
 var isScrolled = false;
