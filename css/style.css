@@ -58,6 +58,8 @@ a:hover {
 
 #background {
     display: block;
+    background: #ffffff;
+    background: linear-gradient(0deg,rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 12%, rgba(239, 101, 101, 1) 67%, rgba(224, 63, 63, 1) 100%);
 }
 
 .about-me-overview {
