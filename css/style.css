@@ -253,10 +253,16 @@ a:hover {
     -webkit-user-select: none;
     -ms-user-select: none;
     -webkit-tap-highlight-color: transparent;
+    transition: all 0.25s;
 }
 
 #selfie:hover {
-    border-width: 15px;
+    cursor: pointer;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
 }
 
 #site-header {
