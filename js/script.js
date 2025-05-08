@@ -18,8 +18,6 @@ intro.innerHTML = intro.textContent.replace(/\S/g, "<span class='intro-letter'>$
 
 var skill = document.querySelector("#skill");
 var headings = document.getElementsByClassName("heading");
-var middle = document.querySelector("#middle");
-middle.innerHTML = middle.textContent.replace(/\S/g, "<span class='middle-letter'>$&</span>");
 
 var conclusion = document.querySelector("#conclusion");
 conclusion.innerHTML = conclusion.textContent.replace(/\S/g, "<span class='conclusion-letter'>$&</span>");
@@ -49,7 +47,7 @@ function changeSkill() {
     opacity: [0, 1],
     easing: "easeOutSine",
     duration: 150,
-    delay: (_, i) => 500 + 20 * (i - 1)
+    delay: (_, i) => 1000 + 20 * (i - 1)
   }).finished.then(() => {
     anime({
       targets: '.skill-letter',
@@ -106,20 +104,12 @@ $(document).ready(() => {
     });
 
     anime({
-      targets: '#middle .middle-letter',
+      targets: '#conclusion .conclusion-letter',
       opacity: [0, 1],
       easing: "easeOutSine",
       duration: 150,
-      delay: (_, i) => 1000 + 20 * (i - 1)
-    }).finished.then(() => {
-      anime({
-        targets: '#conclusion .conclusion-letter',
-        opacity: [0, 1],
-        easing: "easeOutSine",
-        duration: 150,
-        delay: (_, i) => 20 * (i - 1)
-      });
-    });
+      delay: (_, i) => 1500 + 20 * (i - 1)
+    })
 
     changeSkill();
   });

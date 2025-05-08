@@ -129,14 +129,6 @@ a:hover {
     color: transparent;
 }
 
-#middle {
-    opacity: 1;
-}
-
-.middle-letter {
-    opacity: 0;
-}
-
 #conclusion {
     opacity: 1;
 }
