@@ -75,10 +75,10 @@ VANTA.FOG({
   gyroControls: false,
   minHeight: 200.00,
   minWidth: 200.00,
-  highlightColor: "0x5b1616",
-  midtoneColor: "0xc2203f",
-  lowlightColor: "0x95172f",
-  baseColor: "0xef6565",
+  highlightColor: "#5b1616",
+  midtoneColor: "#c2203f",
+  lowlightColor: "#95172f",
+  baseColor: "#ef6565",
   blurFactor: 0.31
 })
 
