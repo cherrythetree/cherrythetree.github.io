@@ -68,21 +68,18 @@ function rotateStar() {
 }
 
 // Begin
-VANTA.CLOUDS({
+VANTA.FOG({
   el: "#background",
-  mouseControls: false,
-  touchControls: false,
+  mouseControls: true,
+  touchControls: true,
   gyroControls: false,
   minHeight: 200.00,
   minWidth: 200.00,
-  backgroundColor: "#c72121",
-  skyColor: "#a71818",
-  cloudColor: "#fcfcfc",
-  cloudShadowColor: "#ffffff",
-  sunColor: "#ffffff",
-  sunGlareColor: "#cc4a52",
-  sunlightColor: "#db3737",
-  speed: 1.90
+  highlightColor: "#5b1616",
+  midtoneColor: "#c2203f",
+  lowlightColor: "#95172f",
+  baseColor: "#ef6565",
+  blurFactor: 0.31
 })
 
 $(document).ready(() => {  
