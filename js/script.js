@@ -63,40 +63,7 @@ function rotateStar() {
   star.style.transform = `rotate(${(0.1 * document.timeline.currentTime) % 360}deg)`;
 }
 
-if (window.innerWidth > 768) {
-  const threeScript = document.createElement('script');
-  threeScript.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js";
-
-  const vantaScript = document.createElement('script');
-  vantaScript.src = "https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js";
-
-  threeScript.onload = () => {
-    document.head.appendChild(vantaScript);
-  };
-
-  vantaScript.onload = () => {
-    VANTA.CLOUDS({
-      el: "#background",
-      mouseControls: false,
-      touchControls: false,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      backgroundColor: "#c72121",
-      skyColor: "#a71818",
-      cloudColor: "#fcfcfc",
-      cloudShadowColor: "#ffffff",
-      sunColor: "#ffffff",
-      sunGlareColor: "#cc4a52",
-      sunlightColor: "#db3737",
-      speed: 1.90
-    });
-  };
-
-  document.head.appendChild(threeScript);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
+function activateAnimations() {
   new WOW().init();
 
   anime({
@@ -126,4 +93,49 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   rotateStar();
-});
+}
+
+function runWhenPageLoaded(callback) {
+  if (document.readyState === "complete") {
+    callback();
+  } else {
+    window.addEventListener("load", callback);
+  }
+}
+
+if (window.innerWidth > 768) {
+  const threeScript = document.createElement('script');
+  threeScript.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js";
+
+  const vantaScript = document.createElement('script');
+  vantaScript.src = "https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js";
+
+  threeScript.onload = () => {
+    document.head.appendChild(vantaScript);
+  };
+
+  vantaScript.onload = () => {
+    VANTA.CLOUDS({
+      el: "#background",
+      mouseControls: false,
+      touchControls: false,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      backgroundColor: "#c72121",
+      skyColor: "#a71818",
+      cloudColor: "#fcfcfc",
+      cloudShadowColor: "#ffffff",
+      sunColor: "#ffffff",
+      sunGlareColor: "#cc4a52",
+      sunlightColor: "#db3737",
+      speed: 1.90
+    });
+
+    runWhenPageLoaded(activateAnimations);
+  };
+
+  document.head.appendChild(threeScript);
+} else {
+  runWhenPageLoaded(activateAnimations);
+}
