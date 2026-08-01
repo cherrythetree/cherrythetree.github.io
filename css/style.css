@@ -58,7 +58,7 @@ a:hover {
 
 #background {
     display: block;
-    background: linear-gradient(180deg, #c43030 0%, #c43030 20%, #ffffff 100%) !important;
+    background: linear-gradient(180deg, #c43030 0%, #c43030 20%, #ffffff 40%, #ffffff 100%) !important;
     background-attachment: scroll;
 }
 
@@ -246,15 +246,6 @@ a:hover {
     -ms-user-select: none;
     -webkit-tap-highlight-color: transparent;
     transition: all 0.25s;
-}
-
-#selfie:hover {
-    cursor: pointer;
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    -o-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
 }
 
 #site-header {
