@@ -1,4 +1,4 @@
-const funFacts = [
+const funFactList = [
   "I write stories, songs, and poems.",
   "I play the guitar.",
   "I mess around on Desmos for fun.",
@@ -26,11 +26,11 @@ let isScrolled = false;
 let funFactsIndex = 0;
 
 function changeAboutMe() {
-  let funFactsDescription = funFacts[funFactsIndex];
+  let funFactsDescription = funFactList[funFactsIndex];
   let funFactsHTML = "";
 
   funFactsIndex++;
-  funFactsIndex %= funFacts.length;
+  funFactsIndex %= funFactList.length;
 
   for (let i = 0; i < funFactsDescription.length; i++) {
     funFactsHTML += `<span class='fun-facts-letter' style='opacity:0;'>${funFactsDescription[i]}</span>`
