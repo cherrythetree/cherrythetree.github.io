@@ -23,6 +23,7 @@ conclusion.innerHTML = conclusion.textContent.replace(/\S/g, "<span class='concl
 const star = document.getElementById("star-image");
 
 let isScrolled = false;
+let isAnimationActivated = false;
 let funFactsIndex = 0;
 
 function changeFunFacts() {
@@ -64,6 +65,10 @@ function rotateStar() {
 }
 
 function activateAnimations() {
+  if (isAnimationActivated) return;
+  
+  isAnimationActivated = true;
+
   new WOW().init();
 
   anime({
