@@ -58,7 +58,8 @@ a:hover {
 
 #background {
     display: block;
-    background: #ffffff;
+    background: linear-gradient(180deg, #c43030 0%, #c43030 20%, #ffffff 100%) !important;
+    background-attachment: scroll;
 }
 
 .about-me-overview {
@@ -286,11 +287,6 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-    #background {
-        background: linear-gradient(180deg, #c43030 0%, #c43030 20%, #ffffff 100%) !important;
-        background-attachment: scroll;
-    }
-
     #about-me-header,
     h1 {
         font-size: 32px;
