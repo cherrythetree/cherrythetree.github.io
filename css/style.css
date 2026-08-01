@@ -59,7 +59,6 @@ a:hover {
 #background {
     display: block;
     background: #ffffff;
-    background: linear-gradient(0deg,rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 12%, rgba(239, 101, 101, 1) 67%, rgba(224, 63, 63, 1) 100%);
 }
 
 .about-me-overview {
@@ -287,33 +286,40 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-  #about-me-header, h1 {
-    font-size: 32px; 
-    scroll-margin-top: 100px;
-    background-size: 100px 100px;
-  }
+    #background {
+        background: linear-gradient(180deg, #e03f3f 0%, #ef6565 40%, #ffffff 100%) !important;
+        background-attachment: scroll;
+    }
 
-  .site-navigation-item-label {
-    font-size: 16px;
-    background-size: 100px 100px;
-  }
-  
-  .site-navigation-item-container {
-    padding: 0 15px 0 15px; 
-  }
+    #about-me-header,
+    h1 {
+        font-size: 32px;
+        scroll-margin-top: 100px;
+        background-size: 100px 100px;
+    }
 
-  .content {
-    font-size: 18px; 
-    margin-left: 10px;
-    margin-right: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
+    .site-navigation-item-label {
+        font-size: 16px;
+        background-size: 100px 100px;
+    }
 
-  html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
+    .site-navigation-item-container {
+        padding: 0 15px 0 15px;
+    }
+
+    .content {
+        font-size: 18px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
 }
 
 @media (min-width: 1024px) {

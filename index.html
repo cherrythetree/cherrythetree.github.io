@@ -139,8 +139,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
     <script>
         if (window.innerWidth > 768) {
-            document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"><\/script>');
-            document.write('<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"><\/script>');
+            const threeScript = document.createElement('script');
+            threeScript.src = "https://cloudflare.com";
+
+            const vantaScript = document.createElement('script');
+            vantaScript.src = "https://jsdelivr.net";
+
+            threeScript.onload = () => {
+                document.head.appendChild(vantaScript);
+            };
+
+            vantaScript.onload = () => {
+                VANTA.CLOUDS({
+                    el: "#background",
+                    mouseControls: false,
+                    touchControls: false,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00,
+                    backgroundColor: "#c72121",
+                    skyColor: "#a71818",
+                    cloudColor: "#fcfcfc",
+                    cloudShadowColor: "#ffffff",
+                    sunColor: "#ffffff",
+                    sunGlareColor: "#cc4a52",
+                    sunlightColor: "#db3737",
+                    speed: 1.90
+                });
+            };
+
+            document.head.appendChild(threeScript);
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
