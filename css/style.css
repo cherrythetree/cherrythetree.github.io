@@ -287,7 +287,7 @@ a:hover {
 
 @media (max-width: 768px) {
     #background {
-        background: linear-gradient(180deg, #c43030 0%, #ef6565 40%, #ffffff 100%) !important;
+        background: linear-gradient(180deg, #c43030 0%, #c43030 40%, #ffffff 100%) !important;
         background-attachment: scroll;
     }
 
