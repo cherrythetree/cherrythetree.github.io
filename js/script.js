@@ -63,7 +63,7 @@ function changeSkill() {
 function rotateStar() {
   requestAnimationFrame(rotateStar);
 
-  star.css("transform", `rotate(${(0.1 * document.timeline.currentTime) % 360}deg)`);
+  star.style.transform = `rotate(${(0.1 * document.timeline.currentTime) % 360}deg)`;
 }
 
 VANTA.CLOUDS({
