@@ -1,4 +1,4 @@
-const aboutMe = [
+const funFacts = [
   "I write stories, songs, and poems.",
   "I play the guitar.",
   "I mess around on Desmos for fun.",
@@ -14,7 +14,7 @@ const aboutMe = [
 const intro = document.querySelector("#intro");
 intro.innerHTML = intro.textContent.replace(/\S/g, "<span class='intro-letter'>$&</span>");
 
-const aboutMe = document.querySelector("#aboutMe");
+const funFacts = document.querySelector("#fun-facts");
 const headings = document.getElementsByClassName("heading");
 
 const conclusion = document.querySelector("#conclusion");
@@ -23,36 +23,36 @@ conclusion.innerHTML = conclusion.textContent.replace(/\S/g, "<span class='concl
 const star = document.getElementById("star-image");
 
 let isScrolled = false;
-let aboutMeIndex = 0;
+let funFactsIndex = 0;
 
 function changeAboutMe() {
-  let aboutMeDescription = aboutMe[aboutMeIndex];
-  let aboutMeHTML = "";
+  let funFactsDescription = funFacts[funFactsIndex];
+  let funFactsHTML = "";
 
-  aboutMeIndex++;
-  aboutMeIndex %= aboutMe.length;
+  funFactsIndex++;
+  funFactsIndex %= funFacts.length;
 
-  for (let i = 0; i < aboutMeDescription.length; i++) {
-    aboutMeHTML += `<span class='aboutMe-letter' style='opacity:0;'>${aboutMeDescription[i]}</span>`
+  for (let i = 0; i < funFactsDescription.length; i++) {
+    funFactsHTML += `<span class='fun-facts-letter' style='opacity:0;'>${funFactsDescription[i]}</span>`
   }
 
-  aboutMe.innerHTML = aboutMeHTML;
+  funFacts.innerHTML = funFactsHTML;
 
   anime({
-    targets: '.aboutMe-letter',
+    targets: '.fun-facts-letter',
     opacity: [0, 1],
     easing: "easeOutSine",
     duration: 150,
     delay: (_, i) => 1000 + 20 * (i - 1)
   }).finished.then(() => {
     anime({
-      targets: '.aboutMe-letter',
+      targets: '.fun-facts-letter',
       opacity: [1, 0],
       duration: 100,
       easing: "easeOutExpo",
-      delay: (_, i) => 600 + 20 * (aboutMeDescription.length - i - 1)
+      delay: (_, i) => 600 + 20 * (funFactsDescription.length - i - 1)
     }).finished.then(() => {
-      setTimeout(changeaboutMe, 10);
+      setTimeout(changefunFacts, 10);
     });
   })
 }
