@@ -139,3 +139,5 @@ if (window.innerWidth > 768) {
 } else {
   runWhenPageLoaded(activateAnimations);
 }
+
+setTimeout(activateAnimations, 5000);
