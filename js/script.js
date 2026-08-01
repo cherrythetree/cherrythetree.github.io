@@ -1,31 +1,30 @@
-// Variables
-var skills = [
-  "I develop games in my free time.",
+const skills = [
+  "I write stories, songs, and poems.",
+  "I play the guitar.",
+  "Emmy Noether is my favorite academic figure.",
+  "I mess around on Desmos for fun.",
   "I code visual effects.",
-  "I model 3D meshes.",
-  "I design user interface.",
-  "I write narratives.",
-  "I play the ukulele.",
-  "I love messing around on Desmos.",
-  "I write song lyrics.",
-  "I really love the guitar.",
-  "I write all things poetry."
+  "I love 3D modeling.",
+  "I really adore the ukulele.",
+  "I think conlanging is interesting.",
+  "I develop game projects in my free time.",
+  "I am not, therefore I am not thinking."
 ];
 
-var isScrolled = false;
-var intro = document.querySelector("#intro");
+const intro = document.querySelector("#intro");
 intro.innerHTML = intro.textContent.replace(/\S/g, "<span class='intro-letter'>$&</span>");
 
-var skill = document.querySelector("#skill");
-var headings = document.getElementsByClassName("heading");
+const skill = document.querySelector("#skill");
+const headings = document.getElementsByClassName("heading");
 
-var conclusion = document.querySelector("#conclusion");
+const conclusion = document.querySelector("#conclusion");
 conclusion.innerHTML = conclusion.textContent.replace(/\S/g, "<span class='conclusion-letter'>$&</span>");
 
-var skillIndex = 0;
-var star = document.getElementById("star-image");
+const star = document.getElementById("star-image");
 
-// Functions
+let isScrolled = false;
+let skillIndex = 0;
+
 function changeSkill() {
   let skillDescription = skills[skillIndex];
   let skillHTML = "";
@@ -64,25 +63,27 @@ function changeSkill() {
 function rotateStar() {
   requestAnimationFrame(rotateStar);
 
-  $("#star-image").css("transform", "rotate(" + (0.1 * document.timeline.currentTime) % 360 + "deg)");
+  star.css("transform", `rotate(${(0.1 * document.timeline.currentTime) % 360}deg)`);
 }
 
-// Begin
-VANTA.FOG({
+VANTA.CLOUDS({
   el: "#background",
-  mouseControls: true,
-  touchControls: true,
+  mouseControls: false,
+  touchControls: false,
   gyroControls: false,
   minHeight: 200.00,
   minWidth: 200.00,
-  highlightColor: "#5b1616",
-  midtoneColor: "#c2203f",
-  lowlightColor: "#95172f",
-  baseColor: "#ef6565",
-  blurFactor: 0.31
+  backgroundColor: "#c72121",
+  skyColor: "#a71818",
+  cloudColor: "#fcfcfc",
+  cloudShadowColor: "#ffffff",
+  sunColor: "#ffffff",
+  sunGlareColor: "#cc4a52",
+  sunlightColor: "#db3737",
+  speed: 1.90
 })
 
-$(document).ready(() => {  
+document.addEventListener("DOMContentLoaded", () => {
   new WOW().init();
 
   anime({
