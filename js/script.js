@@ -63,22 +63,24 @@ function rotateStar() {
   star.style.transform = `rotate(${(0.1 * document.timeline.currentTime) % 360}deg)`;
 }
 
-VANTA.CLOUDS({
-  el: "#background",
-  mouseControls: false,
-  touchControls: false,
-  gyroControls: false,
-  minHeight: 200.00,
-  minWidth: 200.00,
-  backgroundColor: "#c72121",
-  skyColor: "#a71818",
-  cloudColor: "#fcfcfc",
-  cloudShadowColor: "#ffffff",
-  sunColor: "#ffffff",
-  sunGlareColor: "#cc4a52",
-  sunlightColor: "#db3737",
-  speed: 1.90
-})
+if (window.innerWidth > 768) {
+  VANTA.CLOUDS({
+    el: "#background",
+    mouseControls: false,
+    touchControls: false,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    backgroundColor: "#c72121",
+    skyColor: "#a71818",
+    cloudColor: "#fcfcfc",
+    cloudShadowColor: "#ffffff",
+    sunColor: "#ffffff",
+    sunGlareColor: "#cc4a52",
+    sunlightColor: "#db3737",
+    speed: 1.90
+  });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   new WOW().init();
