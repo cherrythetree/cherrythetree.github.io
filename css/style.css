@@ -55,10 +55,10 @@ a {
 a:hover {
     color: silver;
 }
-
+z
 #background {
     display: block;
-    background: linear-gradient(180deg, #c43030 0%, #c43030 20%, #ffffff 30%, #ffffff 100%) !important;
+    background: linear-gradient(180deg, #c43030 0%, #c43030 30%, #ffffff 50%, #ffffff 100%) !important;
     background-attachment: scroll;
 }
 
