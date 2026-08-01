@@ -286,6 +286,36 @@ a:hover {
     }
 }
 
+@media (max-width: 768px) {
+  #about-me-header, h1 {
+    font-size: 32px; 
+    scroll-margin-top: 100px;
+    background-size: 100px 100px;
+  }
+
+  .site-navigation-item-label {
+    font-size: 16px;
+    background-size: 100px 100px;
+  }
+  
+  .site-navigation-item-container {
+    padding: 0 15px 0 15px; 
+  }
+
+  .content {
+    font-size: 18px; 
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+
 @media (min-width: 1024px) {
     .large\:margin-left {
         margin-left: 1rem;
