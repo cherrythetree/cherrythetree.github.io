@@ -25,7 +25,7 @@ const star = document.getElementById("star-image");
 let isScrolled = false;
 let funFactsIndex = 0;
 
-function changeAboutMe() {
+function changeFunFacts() {
   let funFactsDescription = funFactList[funFactsIndex];
   let funFactsHTML = "";
 
@@ -52,7 +52,7 @@ function changeAboutMe() {
       easing: "easeOutExpo",
       delay: (_, i) => 600 + 20 * (funFactsDescription.length - i - 1)
     }).finished.then(() => {
-      setTimeout(changefunFacts, 10);
+      setTimeout(changeFunFacts, 10);
     });
   })
 }
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
       delay: (_, i) => 1500 + 20 * (i - 1)
     })
 
-    changeAboutMe();
+    changeFunFacts();
   });
 
   rotateStar();
