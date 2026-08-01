@@ -66,7 +66,7 @@ function rotateStar() {
 
 function activateAnimations() {
   if (isAnimationActivated) return;
-  
+
   isAnimationActivated = true;
 
   new WOW().init();
