@@ -45,7 +45,8 @@
                         </p>
                         <p id="conclusion">
                             I'm from the Philippines, and I enjoy a variety of creative endeavors as much as I program.
-                            Think of me as someone who spends his time breathing art and projects into life through coding!
+                            Think of me as someone who spends his time breathing art and projects into life through
+                            coding!
                             You could also think of me as a person.
                         </p>
                     </div>
@@ -136,8 +137,12 @@
         </center>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
+    <script>
+        if (window.innerWidth > 768) {
+            document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"><\/script>');
+            document.write('<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"><\/script>');
+        }
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <script src="js/script.js""></script>
 </body>

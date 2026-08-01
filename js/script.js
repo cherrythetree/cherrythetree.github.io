@@ -63,7 +63,7 @@ function rotateStar() {
   star.style.transform = `rotate(${(0.1 * document.timeline.currentTime) % 360}deg)`;
 }
 
-if (window.innerWidth > 768) {
+if (typeof VANTA !== 'undefined') {
   VANTA.CLOUDS({
     el: "#background",
     mouseControls: false,
