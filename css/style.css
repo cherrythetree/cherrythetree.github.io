@@ -22,7 +22,7 @@ ul {
     font-weight: 900;
     font-size: 54px;
     scroll-margin-top: 160px;
-    background-image: url("https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_media/white-noise.png");
+    background-image: url("https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_media/white-noise.webp");
     background-clip: text;
     background-size: 25vw 25vw;
     background-repeat: repeat;
@@ -34,7 +34,7 @@ h1 {
     font-weight: 900;
     font-size: 54px;
     scroll-margin-top: 160px;
-    background-image: url("https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_media/red-noise.png");
+    background-image: url("https://raw.githubusercontent.com/cherrythetree/cherrythetree.github.io/refs/heads/main/_media/red-noise.webp");
     background-clip: text;
     background-size: 25vw 25vw;
     background-repeat: repeat;
