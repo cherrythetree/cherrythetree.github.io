@@ -1,20 +1,20 @@
-const skills = [
+const aboutMe = [
   "I write stories, songs, and poems.",
   "I play the guitar.",
-  "Emmy Noether is my favorite academic figure.",
   "I mess around on Desmos for fun.",
   "I code visual effects.",
   "I love 3D modeling.",
   "I really adore the ukulele.",
   "I think conlanging is interesting.",
   "I develop game projects in my free time.",
-  "I am not, therefore I am not thinking."
+  "I am not, therefore I am not thinking.",
+  "Emmy Noether is my favorite mathematician."
 ];
 
 const intro = document.querySelector("#intro");
 intro.innerHTML = intro.textContent.replace(/\S/g, "<span class='intro-letter'>$&</span>");
 
-const skill = document.querySelector("#skill");
+const aboutMe = document.querySelector("#aboutMe");
 const headings = document.getElementsByClassName("heading");
 
 const conclusion = document.querySelector("#conclusion");
@@ -23,39 +23,36 @@ conclusion.innerHTML = conclusion.textContent.replace(/\S/g, "<span class='concl
 const star = document.getElementById("star-image");
 
 let isScrolled = false;
-let skillIndex = 0;
+let aboutMeIndex = 0;
 
-function changeSkill() {
-  let skillDescription = skills[skillIndex];
-  let skillHTML = "";
+function changeAboutMe() {
+  let aboutMeDescription = aboutMe[aboutMeIndex];
+  let aboutMeHTML = "";
 
-  skillIndex++;
+  aboutMeIndex++;
+  aboutMeIndex %= aboutMe.length;
 
-  if (skillIndex >= skills.length) {
-    skillIndex = 0;
+  for (let i = 0; i < aboutMeDescription.length; i++) {
+    aboutMeHTML += `<span class='aboutMe-letter' style='opacity:0;'>${aboutMeDescription[i]}</span>`
   }
 
-  for (let i = 0; i < skillDescription.length; i++) {
-    skillHTML += `<span class='skill-letter' style='opacity:0;'>${skillDescription[i]}</span>`
-  }
-
-  skill.innerHTML = skillHTML;
+  aboutMe.innerHTML = aboutMeHTML;
 
   anime({
-    targets: '.skill-letter',
+    targets: '.aboutMe-letter',
     opacity: [0, 1],
     easing: "easeOutSine",
     duration: 150,
     delay: (_, i) => 1000 + 20 * (i - 1)
   }).finished.then(() => {
     anime({
-      targets: '.skill-letter',
+      targets: '.aboutMe-letter',
       opacity: [1, 0],
       duration: 100,
       easing: "easeOutExpo",
-      delay: (_, i) => 600 + 20 * (skillDescription.length - i - 1)
+      delay: (_, i) => 600 + 20 * (aboutMeDescription.length - i - 1)
     }).finished.then(() => {
-      setTimeout(changeSkill, 10);
+      setTimeout(changeaboutMe, 10);
     });
   })
 }
@@ -109,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
       delay: (_, i) => 1500 + 20 * (i - 1)
     })
 
-    changeSkill();
+    changeAboutMe();
   });
 
   rotateStar();
